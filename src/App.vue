@@ -1,25 +1,24 @@
 <!-- the script is where the js code goes -->
-<script>
+<script setup>
 import { ref } from "vue" // you need this to use ref()
 
 let count = ref(0);
 let scriptName = ref ("addTwoNumbers.gh")
-let name = ref("Kostas")
+let name = ref("Anna")
 
-function increment() {{ 
-count.value++;
+function increment() { 
+    count.value++;
 
-}}
+}
 
 </script>
-
 
 
 <!-- the template is where the html code goes -->
 <template>
    
    <div id="navbar" class="container">  
-        <div id="title">Kostas Awesome Website</div>
+        <div id="title">{{name}} awesome website</div>
         
         <div id="logo">
             <img src="./cow.jpg" alt="macad cow">
@@ -31,16 +30,21 @@ count.value++;
 
     <div id="flex">
 
-        <div id="sidebar" class="container"> Sidebar </div>
+        <div id="sidebar" class="container center"> Sidebar 
+            
+            <button @click="increment">Add one more</button>
 
-        <div id="main" class="container"> Text input </div>
+
+        </div>
+
+
+        <div id="main" class="container"> Main Area 
+            <p style= "margin-left: 20px" >Count is: {{count}}</p>
+
+        </div>
     </div>
 
-    <div id="content">
-
-        <button @click="increment">Add one more</button>
-        
-    </div>
+   
 
 
 
@@ -52,8 +56,8 @@ count.value++;
 <style scoped>
 html{
     
-    background-color: rgb(59, 59, 59); 
-    color: white;
+    background-color: rgb(0, 0, 0); 
+    color: rgb(250, 246, 246);
 }
 
 body{
@@ -77,7 +81,8 @@ img{
 #navbar{
 
     height: 50px;
-    border-color: red;
+    border-color: rgb(38, 123, 219);
+    background-color: rgb(101, 161, 161);
 
 
 }
@@ -90,14 +95,24 @@ img{
 
 #sidebar{
     
-    width:30%;
-    border-color: blue;
+    width: 25%;
+    border-color: rgb(38, 123, 219);
+    background-color: rgb(165, 211, 224);
+
 
 }
 
+.center {
+  width: 60%;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  line-height: 300px;
+}
+
 #main{
-    width:70%;
+    width: 75%;
     border-color: green;
+    background-color: rgb(122, 202, 216);
 
 }
 
