@@ -30,23 +30,28 @@ function increment() {
 
     <div id="flex">
 
-        <div id="sidebar" class="container center"> Sidebar 
-            
-            <button @click="increment">Add one more</button>
+        <div id="sidebar" class="container"> Sidebar 
+
+            <div id="sidebar" class="center">
+
+                <button @click="increment">Add one more</button>
+
+            </div>
+
+            <div id="sidebar" class="center">
+
+                <button @click="increment">Chnage Color</button>
+
+            </div>
 
 
         </div>
-
 
         <div id="main" class="container"> Main Area 
             <p style= "margin-left: 20px" >Count is: {{count}}</p>
 
         </div>
     </div>
-
-   
-
-
 
 </template>
 
@@ -103,10 +108,10 @@ img{
 }
 
 .center {
-  width: 60%;
-  border: 3px solid #73AD21;
-  padding: 10px;
-  line-height: 300px;
+  width: 100%;
+  padding: 30px;
+  line-height: 100px;
+  text-align: center;
 }
 
 #main{
