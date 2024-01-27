@@ -4,12 +4,23 @@ import { ref } from "vue" // you need this to use ref()
 
 let count = ref(0);
 let scriptName = ref ("addTwoNumbers.gh")
-let name = ref("Anna")
+let name = ref("Kostas")
 
 function increment() { 
     count.value++;
 
 }
+
+
+const mainColor = ref('#ffffff'); // Initial color for the main content
+const newColor = ref(''); // Variable to store the color from the text box
+
+const changeMainColor = () => {
+  // Update the mainColor with the value from the text box
+  mainColor.value = newColor.value;
+};
+
+
 
 </script>
 
@@ -38,20 +49,33 @@ function increment() {
 
             </div>
 
-            <div id="sidebar" class="center">
+    
 
-                <button @click="increment">Chnage Color</button>
+            <div class="sidebar">
+
+                <button @click="changeMainColor">Change Main Color</button>
+                <input v-model="newColor" type="text" placeholder="Enter Color" />
 
             </div>
 
 
         </div>
 
-        <div id="main" class="container"> Main Area 
-            <p style= "margin-left: 20px" >Count is: {{count}}</p>
+        
 
-        </div>
+        <div id="main" :style="{ backgroundColor: mainColor }"> Main Area 
+
+            <p style= "margin-left: 20px" >Count is: {{count}}</p>
+                
+            </div>
+
+
+
+
     </div>
+
+    
+    
 
 </template>
 
@@ -103,6 +127,7 @@ img{
     width: 25%;
     border-color: rgb(38, 123, 219);
     background-color: rgb(165, 211, 224);
+    padding: 20px;
 
 
 }
@@ -117,7 +142,8 @@ img{
 #main{
     width: 75%;
     border-color: green;
-    background-color: rgb(122, 202, 216);
+    background-color: var(--mainColor);
+    padding: 20px;
 
 }
 
@@ -132,6 +158,10 @@ img{
     float:right;
     text-align: right;
 
+}
+
+.button {
+  margin-bottom: 10px;
 }
 
 .container{
