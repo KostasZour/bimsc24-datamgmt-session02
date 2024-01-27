@@ -21,6 +21,15 @@ const changeMainColor = () => {
 };
 
 
+const textInput = ref('');
+const textList = ref([]);
+
+function addText() {
+  textList.value.push(textInput.value);
+  // Optionally, you can clear the input after adding text
+  // textInput.value = '';
+}
+
 
 </script>
 
@@ -56,7 +65,13 @@ const changeMainColor = () => {
                 <button @click="changeMainColor">Change Main Color</button>
                 <input v-model="newColor" type="text" placeholder="Enter Color" />
 
+                <button @click="addText">Add Text</button>
+                <input v-model="textInput" type="text" placeholder="Enter Text" />
+                
+
             </div>
+
+
 
 
         </div>
@@ -66,6 +81,12 @@ const changeMainColor = () => {
         <div id="main" :style="{ backgroundColor: mainColor }"> Main Area 
 
             <p style= "margin-left: 20px" >Count is: {{count}}</p>
+
+            <!-- Display all added texts -->
+            <p v-for="(text, index) in textList" :key="index" style="margin-left: 20px">
+                Text added: {{ text }}
+            </p>
+
                 
             </div>
 
@@ -128,15 +149,16 @@ img{
     border-color: rgb(38, 123, 219);
     background-color: rgb(165, 211, 224);
     padding: 20px;
-
+    
 
 }
 
 .center {
-  width: 100%;
+
+  width: 200%;
   padding: 30px;
   line-height: 100px;
-  text-align: center;
+  
 }
 
 #main{
@@ -144,6 +166,7 @@ img{
     border-color: green;
     background-color: var(--mainColor);
     padding: 20px;
+    flex: 1;
 
 }
 
