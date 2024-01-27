@@ -33,7 +33,6 @@ function addText() {
 
 </script>
 
-
 <!-- the template is where the html code goes -->
 <template>
    
